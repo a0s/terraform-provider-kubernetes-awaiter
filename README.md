@@ -120,7 +120,7 @@ Known issues
 ------------
 
 - `kubernetes_manifest` from 
-  [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) is trying 
+  [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) try
   to access CRD at the _planning_ phase, so `kubernetes-awaiter` can't helps here.
 
 TODO
