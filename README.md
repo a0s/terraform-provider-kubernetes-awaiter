@@ -3,6 +3,22 @@ terraform-provider-kubernetes-awaiter
 
 Able to wait for the Kubernetes API resource described by URI.
 
+Provider
+--------
+
+```hcl
+terraform {
+  required_providers {
+    kubernetes-awaiter = {
+      version = "~> 0.0.1"
+      source = "a0s/kubernetes-awaiter"
+    }
+  }
+}
+
+provider "kubernetes-awaiter" {}
+```
+
 Usage
 -----
 
