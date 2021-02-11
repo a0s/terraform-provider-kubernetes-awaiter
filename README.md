@@ -1,7 +1,7 @@
 terraform-provider-kubernetes-awaiter
 =====================================
 
-Waits for kubernetes API resource described by uri
+Able to wait for the Kubernetes API resource described by URI.
 
 Usage
 -----
@@ -10,7 +10,11 @@ Input data:
 
 ```hcl
 locals {
-  kube_config_path = "PATH TO KUBE CONFIG FILE"
+  // Path to the kube config file
+  kube_config_path = "../kube-conig.yml"
+  
+  // URI path to the Kubernetes API resource
+  kubeapi_resource_path = "/apis/apiextensions.k8s.io/v1/customresourcedefinitions/issuers.cert-manager.io"
 }
 ```
 
@@ -57,7 +61,7 @@ resource "kubernetes_cluster_role_binding" "resource_checker" {
 }
 ```
 
-Waiting to appear of Issuer and ClusterIssuer custom resource definition from `helm_release`:
+Waiting to appear of Issuer custom resource definition from `helm_release`:
 
 ```hcl
 locals {
@@ -90,7 +94,7 @@ resource "kubernetes_resource_awaiter" "wait_cert_manager" {
   timeout = "5m"
   poll = "1s"
 
-  uri = "${local.server}${resource_path}"
+  uri = "${local.server}${local.kubeapi_resource_path}"
 }
 ```
 
