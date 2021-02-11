@@ -3,6 +3,8 @@ terraform-provider-kubernetes-awaiter
 
 Able to wait for the Kubernetes API resource described by URI.
 
+![8006789bb0cc3734ca56a33a79d2660023d66fd71ea1755948161b32292801bf](https://user-images.githubusercontent.com/418868/107657861-a095d400-6c96-11eb-8b79-df7e07c84f8e.jpg)
+
 Provider
 --------
 
