@@ -12,7 +12,7 @@ Provider
 terraform {
   required_providers {
     kubernetes-awaiter = {
-      version = "~> 0.0.1"
+      version = "~> v0.1.0"
       source = "a0s/kubernetes-awaiter"
     }
   }
