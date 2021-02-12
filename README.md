@@ -86,8 +86,6 @@ locals {
   server = yamldecode(file(local.kube_config_path)).clusters[0].cluster.server
   cacert = base64decode(yamldecode(file(local.kube_config_path)).clusters[0].cluster["certificate-authority-data"])
   token = lookup(data.kubernetes_secret.resource_checker.data, "token")
-  
-  resource_path = "/apis/apiextensions.k8s.io/v1/customresourcedefinitions/issuers.cert-manager.io" 
 }
 
 resource "helm_release" "cert_manager" {
