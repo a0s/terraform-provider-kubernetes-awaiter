@@ -12,7 +12,7 @@ Provider
 terraform {
   required_providers {
     kubernetes-awaiter = {
-      version = "~> 0.0.1"
+      version = "~> v0.1.0"
       source = "a0s/kubernetes-awaiter"
     }
   }
@@ -86,8 +86,6 @@ locals {
   server = yamldecode(file(local.kube_config_path)).clusters[0].cluster.server
   cacert = base64decode(yamldecode(file(local.kube_config_path)).clusters[0].cluster["certificate-authority-data"])
   token = lookup(data.kubernetes_secret.resource_checker.data, "token")
-  
-  resource_path = "/apis/apiextensions.k8s.io/v1/customresourcedefinitions/issuers.cert-manager.io" 
 }
 
 resource "helm_release" "cert_manager" {
@@ -120,7 +118,7 @@ Known issues
 ------------
 
 - `kubernetes_manifest` from 
-  [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) is trying 
+  [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) try
   to access CRD at the _planning_ phase, so `kubernetes-awaiter` can't helps here.
 
 TODO
