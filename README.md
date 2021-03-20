@@ -117,9 +117,7 @@ resource "kubernetes_resource_awaiter" "wait_cert_manager" {
 Known issues
 ------------
 
-- `kubernetes_manifest` from 
-  [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) try
-  to access CRD at the _planning_ phase, so `kubernetes-awaiter` can't helps here.
+- ~~`kubernetes_manifest` from [terraform-provider-kubernetes-alpha](https://github.com/hashicorp/terraform-provider-kubernetes-alpha) try to access CRD at the _planning_ phase, so `kubernetes-awaiter` can't helps here.~~ fixed in [v0.3.2](https://github.com/hashicorp/terraform-provider-kubernetes-alpha/releases/tag/v0.3.2)
 
 TODO
 ----
