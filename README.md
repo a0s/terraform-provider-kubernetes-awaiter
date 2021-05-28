@@ -42,7 +42,7 @@ locals {
   // Path to the kube config file
   kube_config_path = "../kube-conig.yml"
   
-  // URI path to the Kubernetes API resource
+  // URI path to the Kubernetes API resource which we want to wait
   kubeapi_resource_path = "/apis/apiextensions.k8s.io/v1/customresourcedefinitions/issuers.cert-manager.io"
 }
 ```
