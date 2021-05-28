@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-resty/resty/v2"
+	"github.com/hashicorp/go-cty/cty"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"net/url"
@@ -15,11 +16,12 @@ func kubernetesResourceAwaiter() *schema.Resource {
 	return &schema.Resource{
 		Schema: map[string]*schema.Schema{
 			"cacert": {
-				Type:         schema.TypeString,
-				Optional:     true,
-				Description:  "CA certificate content",
-				ExactlyOneOf: []string{"cacert", "cacert_path"},
-				ForceNew:     true,
+				Type:             schema.TypeString,
+				Optional:         true,
+				Description:      "CA certificate content",
+				ExactlyOneOf:     []string{"cacert", "cacert_path"},
+				ForceNew:         true,
+				ValidateDiagFunc: validateCACert,
 			},
 			"cacert_path": {
 				Type:         schema.TypeString,
@@ -58,6 +60,10 @@ func kubernetesResourceAwaiter() *schema.Resource {
 		UpdateContext: kubernetesResourceAwaiterUpdate,
 		DeleteContext: kubernetesResourceAwaiterDelete,
 	}
+}
+
+func validateCACert(d interface{}, _ cty.Path) diag.Diagnostics {
+	return []diag.Diagnostic{}
 }
 
 func kubernetesResourceAwaiterCreate(c context.Context, r *schema.ResourceData, _ interface{}) diag.Diagnostics {

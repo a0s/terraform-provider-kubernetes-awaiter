@@ -6,8 +6,8 @@ import (
 
 func Provider() *schema.Provider {
 	return &schema.Provider{
-		ResourcesMap: map[string]*schema.Resource{
-			"kubernetes_resource_awaiter": kubernetesResourceAwaiter(),
-		},
+		ResourcesMap:   map[string]*schema.Resource{"kubernetes_resource_awaiter": kubernetesResourceAwaiter()},
+		DataSourcesMap: map[string]*schema.Resource{},
+		Schema:         map[string]*schema.Schema{},
 	}
 }
