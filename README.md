@@ -8,6 +8,8 @@ Waits until resource appearing in the K8S cluster. Resource should be described 
 Provider
 --------
 
+https://registry.terraform.io/providers/a0s/kubernetes-awaiter
+
 ```hcl
 terraform {
   required_providers {
