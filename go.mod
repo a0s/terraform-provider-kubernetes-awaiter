@@ -1,6 +1,6 @@
 module github.com/a0s/terraform-provider-kubernetes-awaiter
 
-go 1.15
+go 1.16
 
 require (
 	github.com/go-resty/resty/v2 v2.6.0

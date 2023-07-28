@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-const VERSION = "0.0.1"
+const VERSION = "0.0.2"
 
 type Config struct {
 	Version bool `flag:"version" desc:"show version"`
